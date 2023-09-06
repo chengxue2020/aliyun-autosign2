@@ -25,5 +25,6 @@ jobs:
 1. 获取REFRESH_TOKENS：https://alist.nn.ci/zh/guide/drivers/aliyundrive.html  按提示获取阿里云盘Token。
 2. 新建一个Personal access tokens (classic)：权限选择 repo。
 3. 在仓库的 Settings -> Secrets and Variables -> Actions 中点击 New repository secret 添加 Secrets和相应的值。
+4. 多帐号在REFRESH_TOKENS里添加就行了，用英文逗号隔开。
 
 ![image](https://user-images.githubusercontent.com/65840178/224957880-cac76f91-c3f9-4e02-9177-c3dbac804b94.png)
