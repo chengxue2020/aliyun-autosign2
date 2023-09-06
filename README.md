@@ -1,35 +1,3 @@
-## aliyun-signin-action
-
-利用 Github Actions 定时任务每天签到阿里云，领取礼包。
-
-基于 https://github.com/ImYrS/aliyun-auto-signin 仓库，参考链接 https://hostloc.com/thread-1147588-1-6.html?d=1
-
-```yml
-name: Aliyun Signin
-
-on:
-  schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
-jobs:
-  signin:
-    name: Aliyun Signin
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ImYrS/aliyun-auto-signin@main
-        with:
-          REFRESH_TOKENS: ${{ secrets.REFRESH_TOKENS }}
-          GP_TOKEN: ${{ secrets.GP_TOKEN}}
-```
-
-1. 获取REFRESH_TOKENS：https://alist.nn.ci/zh/guide/drivers/aliyundrive.html  按提示获取阿里云盘Token。
-2. 新建一个Personal access tokens (classic)：权限选择 repo。
-3. 在仓库的 Settings -> Secrets and Variables -> Actions 中点击 New repository secret 添加 Secrets和相应的值。
-4. 多帐号在REFRESH_TOKENS里添加就行了，用英文逗号隔开。
-
-![image](https://user-images.githubusercontent.com/65840178/224957880-cac76f91-c3f9-4e02-9177-c3dbac804b94.png)
-
-
 # Action 使用指南
 
 ## 特性
@@ -106,7 +74,14 @@ jobs:
 添加时 `Name` 为下方全大写的配置 key, `Secret` 为对应的值, 均不需要引号.
 
 - `REFRESH_TOKENS` **[必选]** *阿里云盘 refresh token, 多账户使用英文逗号 (,) 分隔*
-- `GP_TOKEN` [推荐] 在 Action 中运行时更新 refresh token
+- `GP_TOKEN` [推荐] 即Github Token, 在 Action 中运行时更新 refresh token
+
+> **获取 REFRESH_TOKENS 的方法**
+1. 获取REFRESH_TOKENS：https://alist.nn.ci/zh/guide/drivers/aliyundrive.html  按提示获取阿里云盘Token。
+2. 新建一个Personal access tokens (classic)：权限选择 repo。
+3. 在仓库的 Settings -> Secrets and Variables -> Actions 中点击 New repository secret 添加 Secrets和相应的值。
+4. 多帐号在REFRESH_TOKENS里添加就行了，用英文逗号隔开。
+
 
 > **获取 GP_TOKEN 的方法**
 >
